@@ -1,29 +1,39 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Button } from 'semantic-ui-react';
-import { incrementCounter, decrementCounter } from './testActions'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Button } from "semantic-ui-react";
+import { incrementCounter, decrementCounter } from "./testActions";
+import { openModal } from "../modals/modalActions";
 
-const mapState = (state) => ({
+const mapState = state => ({
   data: state.test.data
-})
+});
 
 const actions = {
-    incrementCounter, 
-    decrementCounter
-}
+  incrementCounter,
+  decrementCounter,
+  openModal
+};
 
 class TestComponent extends Component {
   render() {
-      const {incrementCounter, decrementCounter, data} = this.props
+    const { incrementCounter, decrementCounter, data, openModal } = this.props;
     return (
       <div>
         <h1> test Area</h1>
         <h3>the answer is: {this.props.data}</h3>
-        <Button onClick={incrementCounter} color='green' content='Increment'/>
-        <Button onClick={decrementCounter} color='red' content='Decrement'/>
+        <Button onClick={incrementCounter} color="green" content="Increment" />
+        <Button onClick={decrementCounter} color="red" content="Decrement" />
+        <Button
+          onClick={() => openModal("TestModal", { data: 43 })}
+          color="teal"
+          content="open modal"
+        />
       </div>
-    )
+    );
   }
 }
 
-export default connect(mapState, actions)(TestComponent)
+export default connect(
+  mapState,
+  actions
+)(TestComponent);

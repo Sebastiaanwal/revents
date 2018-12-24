@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Grid, Buton } from 'semantic-ui-react'
+import { Grid, Button } from 'semantic-ui-react'
 import EventList from '../EventList/EventList'
-import { createEvent, deleteEvent, updateEvent} from '../eventActions'
+import { deleteEvent} from '../eventActions'
+import LoadingComponent from '../../../app/layouts/LoadingComponent';
 
-  const mapState = (state) => ({
-    events: state.events
+  const mapState = state => ({
+    events: state.events,
+    loading: state.async.loading
   })
 
   const actions = {
@@ -19,7 +21,8 @@ import { createEvent, deleteEvent, updateEvent} from '../eventActions'
    };
 
   render() {
-      const {events} = this.props
+      const {events, loading} = this.props
+      if (loading) return <LoadingComponent/>
     return (
       <Grid>
         <Grid.Column width={10}>

@@ -20,7 +20,7 @@ function SettingsNav() {
               color="grey"
               content="Account"
             />
-            <Menu.Item as={NavLink} to='/settings/about'>My Account</Menu.Item>
+            <Menu.Item as={NavLink} to='/settings/account'>My Account</Menu.Item>
           </Menu>
         </Grid.Column>
   )

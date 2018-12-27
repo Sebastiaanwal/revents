@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Photospage() {
+function PhotosPage() {
   return (
     <div>
       <h1>Photospage</h1>
@@ -8,4 +8,4 @@ function Photospage() {
   )
 }
 
-export default Photospage
+export default PhotosPage
